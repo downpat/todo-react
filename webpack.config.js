@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   entry: [
     './src/index.js'
@@ -18,11 +20,15 @@ module.exports = {
       }
     }]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
     historyApiFallback: true,
+    hot: true,
     contentBase: './'
   }
 };
